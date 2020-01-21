@@ -1,13 +1,16 @@
 import React, { Component } from "react";
 import "./App.css";
 import Person from "./Person/Person";
+import Useroutput from "./UserOutput/Useroutput";
+import Userinput from "./UserInput/Userinput";
 
 class App extends Component {
   state = {
     person: [
       { name: "max", age: 28 },
       { name: "Edwin", age: 22 }
-    ]
+    ],
+    usernames:['max','Admin','Edd']
   };
 
   switchNameHandler = (newname) => {
@@ -26,6 +29,19 @@ class App extends Component {
           {name:'Edwin',age: 22}
         
       ]
+    })
+  }
+
+  updateUsernameHandler= () =>{
+    this.setState({
+      usernames:['Maximilian','Administrator','Edwin']
+    });
+
+  }
+
+  changeUsername= (event)=> {
+    this.setState({
+      usernames:[event.target.value,'Maximilian',"Edwin"]
     })
   }
   render() {
@@ -57,6 +73,15 @@ class App extends Component {
           name={this.state.person[1].name}
           age={this.state.person[1].age}
         ></Person>
+       
+      
+       <button onClick={this.updateUsernameHandler}>Update Usernames</button>
+       <Useroutput click={this.changeUsername} username = {this.state.usernames[0]}/>
+       <Useroutput username = {this.state.usernames[1]}/>
+       <Useroutput username = {this.state.usernames[2]}/> 
+         
+
+
       </div>
     );
   }
