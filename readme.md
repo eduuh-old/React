@@ -1,4 +1,4 @@
-# React
+### React
 A javascript library for building user interfaces.It is an open source project maintained by facebook.
 React is generally thought of as the view layer in an application. React components changes what the user see on the page.
 React is a small api with small learning curve as compared to other big frameworks.
@@ -12,3 +12,5 @@ React is a small api with small learning curve as compared to other big framewor
 - Events: This is code that we write for responding to user interactions.
 - JSX: This is the syntax of react components used to describe UI structures.
 
+## Rendering List and Conditional Content
+### Creating truly dynamic apps
