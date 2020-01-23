@@ -70,16 +70,10 @@ class App extends Component {
   }
   
   render() {
-    const style = {
-      backgroundColor: "green",
-      font: "inherit",
-      border: "1px solid blue",
-      padding: "8px",
-      cursor: "poiter",
-    
-    };
+   
 
     let person = null;
+    let btnclass = '';
     if (this.state.showPerson) {
       person = (
         <div>
@@ -96,7 +90,7 @@ class App extends Component {
         </div>
       );
 
-      style.backgroundColor = "red";
+      btnclass = css.Red;
     
     }
      
@@ -115,7 +109,7 @@ class App extends Component {
         <h1>Hi My Name is edwin</h1>
         <p className={classes.join(' ')}>This is really working</p>
 
-        <button style={style} onClick={this.togglePersonHandler}>
+        <button  onClick={this.togglePersonHandler} className={btnclass}>
           Switch Name
         </button>
 
