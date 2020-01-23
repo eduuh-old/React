@@ -65,6 +65,10 @@ class App extends Component {
 
   }
 
+  printlengthofEnteredtext = ()=> {
+
+  }
+
   render() {
     const style = {
       backgroudColor: "white",
@@ -98,6 +102,12 @@ class App extends Component {
           Switch Name
         </button>
         {person}
+
+        <hr/>
+
+        <input changed={(event)=> this.printlengthofEnteredtext(event, id)}></input>
+
+        <p>The length of Entered text is </p>
       </div>
     );
   }
