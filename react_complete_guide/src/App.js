@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import "./App.css";
+import css from "./App.css";
 import Person from "./Person/Person";
 
 class App extends Component {
@@ -111,7 +111,7 @@ class App extends Component {
 
     return (
      
-      <div className="App">
+      <div className={css.App}>
         <h1>Hi My Name is edwin</h1>
         <p className={classes.join(' ')}>This is really working</p>
 
