@@ -1,4 +1,5 @@
 import React , {Component} from 'react';
+import AuthContext from '../../../context/auth-context';
 
 import classes from './Person.css';
 class Person extends Component {
@@ -15,7 +16,9 @@ class Person extends Component {
   console.log('[Person.js] rendering...');
 
   return (
+    <AuthContext.Consumer>
     <div className={classes.Person}>
+    {(context)=> context.authenticated ? <p>Authenticated!</p> : <p>Please log in</p>}
       <p onClick={this.props.click}>
         I'm {this.props.name} and I am {this.props.age} years old!
       </p>
@@ -23,10 +26,12 @@ class Person extends Component {
       <input ref={this.inputElementRef}
       type="text" onChange={this.props.changed} value={this.props.name} />
     </div>
+    
+    </AuthContext.Consumer>
   );
   
   }
  
-};
+}
 
 export default Person;

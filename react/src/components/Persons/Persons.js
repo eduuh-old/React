@@ -3,8 +3,10 @@ import Person from './Person/Person';
 
 
 class Persons extends Component {
- 
-
+  constructor(){
+    super()
+    this.inputElement= React.createRef();
+  }
 
   // static getDerivedStateFromProps(props, state){
   //   console.log('[Persons.js] getDerivedStateFromProps');
@@ -26,6 +28,8 @@ class Persons extends Component {
   getSnapshotBeforeUpdate(prevProp, prevState){
     console.log('[Persons.js] getSnapshopBeforeUpdate');
   }
+
+  
   render(){
    
     console.log('[Persons.js] rendering...');
@@ -38,6 +42,7 @@ class Persons extends Component {
         age={person.age}
         key={person.id}
         changed={event => this.props.changed(event, person.id)}
+        ref={this.inputElement}
       />
     );
   });
