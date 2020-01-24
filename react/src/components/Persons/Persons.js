@@ -8,6 +8,7 @@ class Persons extends Component {
     this.inputElement= React.createRef();
   }
 
+  
   // static getDerivedStateFromProps(props, state){
   //   console.log('[Persons.js] getDerivedStateFromProps');
   //   return state;
@@ -29,7 +30,7 @@ class Persons extends Component {
     console.log('[Persons.js] getSnapshopBeforeUpdate');
   }
 
-  
+
   render(){
    
     console.log('[Persons.js] rendering...');
