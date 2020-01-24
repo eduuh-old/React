@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-
+import Aux from '../hoc/Aux';
 import classes from './App.css';
 import Persons from '../components/Persons/Persons';
 import Cockpit from '../components/Cockpit/Cockpit';
+import withClass from '../hoc/withClass';
 
 class App extends Component {
   constructor(props) {
@@ -12,13 +13,14 @@ class App extends Component {
 
   state = {
     persons: [
-      { id: 'asfa1', name: 'Max', age: 28 },
+      { id: 'asfa1', name: 'Max', age:28 },
       { id: 'vasdf1', name: 'Manu', age: 29 },
       { id: 'asdf11', name: 'Stephanie', age: 26 }
     ],
     otherState: 'some other value',
     showPersons: false,
     showCockpit: true,
+    changeCounter : 0
   };
 
   // static getDerivedStateFromProps(props, state) {
@@ -50,7 +52,11 @@ class App extends Component {
     const persons = [...this.state.persons];
     persons[personIndex] = person;
 
-    this.setState({ persons: persons });
+    this.setState((prevState, props)=>{
+      return { persons: persons ,
+      changeCounter: prevState.changeCounter +1
+      }
+    });
   };
 
   deletePersonHandler = personIndex => {
@@ -80,7 +86,7 @@ class App extends Component {
     }
 
     return (
-      <div className={classes.App}>
+      <Aux>
       <button onClick={()=> this.setState({showCockpit:false})}>Remove Cockpit</button>
         {this.state.showCockpit? 
         <Cockpit
@@ -91,10 +97,10 @@ class App extends Component {
         /> : null
         }
         {persons}
-      </div>
+      </Aux>
     );
     // return React.createElement('div', {className: 'App'}, React.createElement('h1', null, 'Does this work now?'));
   }
 }
 
-export default App;
+export default withClass(App,classes.App);
